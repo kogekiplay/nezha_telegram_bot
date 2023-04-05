@@ -17,7 +17,7 @@ languages['Chinese'] = gettext.translation('myapplication', localedir='locale', 
 languages['English'] = gettext
 
 keys = ['url', 'token']
-auto_delete_duration = 20  # seconds
+auto_delete_duration = 120  # seconds
 VERSION = '0.0.2'
 # Enable logging
 logging.basicConfig(
@@ -194,16 +194,16 @@ def get_detail_keyboard(update: Update, context: CallbackContext, server_id_str=
     if update.callback_query is None:
         send_message = update.message.reply_text
 
-        if update.message.text.startswith('/id'):  # /id command
+        if update.message.text.startswith('/sid'):  # /id command
             # number of parameter not equal to 1
             if len(context.args) != 1:
-                message = send_message(_("Parameters Error!\nPlease send /id id again."))
+                message = send_message(_("Parameters Error!\nPlease send /sid id again."))
                 if not controller.isPrivateChat(update):
                     context.job_queue.run_once(automatic_delete_message, auto_delete_duration, context=message)
                 return
             server_id_str = context.args[0]
             if not server_id_str.isdigit() or int(server_id_str) < 0:
-                message = send_message(_("Input id is not a positive integer.\nPlease send /id id again."))
+                message = send_message(_("Input id is not a positive integer.\nPlease send /sid id again."))
                 if not controller.isPrivateChat(update):
                     context.job_queue.run_once(automatic_delete_message, auto_delete_duration, context=message)
                 return

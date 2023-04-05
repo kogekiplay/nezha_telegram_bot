@@ -43,7 +43,7 @@ def main():
     dispatcher.add_handler(CommandHandler('token', handler.token_command, filters=Filters.chat_type.private))
     dispatcher.add_handler(CommandHandler('info', handler.info_command, filters=Filters.chat_type.private))
     dispatcher.add_handler(CommandHandler('delete', handler.delete_command, filters=Filters.chat_type.private))
-    dispatcher.add_handler(CommandHandler('id', handler.get_detail_keyboard, run_async=True))
+    dispatcher.add_handler(CommandHandler('sid', handler.get_detail_keyboard, run_async=True))
     dispatcher.add_handler(CommandHandler('all', handler.get_detail_keyboard, run_async=True))
     dispatcher.add_handler(CommandHandler('search', handler.search_command, run_async=True))
     updater.dispatcher.add_handler(CallbackQueryHandler(handler.button, run_async=True))
