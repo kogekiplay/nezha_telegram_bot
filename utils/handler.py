@@ -462,7 +462,7 @@ def search_command(update: Update, context: CallbackContext) -> None:
                     break
             if isThisServer:
                 isLive = _("❇️Online") if server_id not in server_list.offline else _("☠️Offline")
-                texts.append(f'{server_id:<3d}{isLive:<7s}{server["name"]}')
+                texts.append(f'{server_id:<3d}  {isLive:<7s}{server["name"]}')
         if len(texts) == 0:
             texts = [
                 _("No server detected."), _("Please try again.")
